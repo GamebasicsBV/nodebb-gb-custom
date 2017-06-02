@@ -1,5 +1,5 @@
 {
-  "name": "nodebb-gb-custom",
+  "name": "nodebb-plugin-gb-custom",
   "version": "1.0.0",
   "description": "",
   "main": "library.js",
@@ -9,6 +9,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/GamebasicsBV/nodebb-gb-custom.git"
+  },
+  "dependencies": {
+    "jsonwebtoken": "5.5.4"
   },
   "author": "",
   "license": "ISC",
