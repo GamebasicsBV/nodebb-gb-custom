@@ -31,7 +31,6 @@ var plugin = {
     // Callback that will be called when a user logs on, so we can update properties likes his profile picture and keep it in sync with osm.
     userLoggedOn: function(request) {
         winston.info("[gb-custom] user logged on");
-        console.log(request.req.cookies);
         var cookies = request.req.cookies;
 
          // Abort if we could not retrieve the jwt token from the cookie
@@ -49,7 +48,6 @@ var plugin = {
             winston.info("[gb-custom] Token could not be verified");
             return;
         }
-        console.log(token);
         // Strip the "_NL" from the NL userId.
         var website = token.username.endsWith("_NL")
                         // Strip the last part of an NL username (_NL)
