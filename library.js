@@ -82,7 +82,7 @@ var plugin = {
             if (!err && result) {
                 winston.info("[gb-custom] Joining language group : " + languageGroupName + " for user id: " + request.uid);
                 // Join the language group for this user.
-                groups.join(languageGroupName, request.uid, function (err) {});
+                groups.join([languageGroupName], request.uid, function (err) {});
             }
         });
 
