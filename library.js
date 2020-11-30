@@ -4,7 +4,7 @@ var meta = module.parent.require('./meta');
 var winston = module.parent.require('winston');
 var _ = module.parent.require('underscore');
 var groups = module.parent.require('./src/groups');
-var controllers = require('./lib/controllers');
+var controllers = require('./src/lib/controllers');
 var user = module.parent.require('./src/user');
 var async = require('async');
 
