@@ -1,11 +1,15 @@
 "use strict";
 var jwt = require('jsonwebtoken');
-var meta = module.parent.require('./meta');
+
 var winston = module.parent.require('winston');
 var _ = module.parent.require('underscore');
+
+var controllers = require('./lib/controllers');
+
+var meta = module.parent.require('./src/meta');
 var groups = module.parent.require('./src/groups');
-var controllers = require('./src/lib/controllers');
 var user = module.parent.require('./src/user');
+
 var async = require('async');
 
 var plugin = {
