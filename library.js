@@ -6,9 +6,9 @@ var _ = module.parent.require('underscore');
 
 var controllers = require('./lib/controllers');
 
-var meta = module.parent.require('./src/meta');
-var groups = module.parent.require('./src/groups');
-var user = module.parent.require('./src/user');
+var meta = require.main.require('./src/meta');
+var groups = require.main.require('./src/groups');
+var user = require.main.require('./src/user');
 
 var async = require('async');
 
