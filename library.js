@@ -5,6 +5,7 @@ var winston = module.parent.require('winston');
 var _ = module.parent.require('underscore');
 
 var controllers = require('./lib/controllers');
+const routeHelpers = require.main.require('./src/routes/helpers');
 
 var meta = require.main.require('./src/meta');
 var groups = require.main.require('./src/groups');
@@ -23,9 +24,8 @@ var plugin = {
 
     // Callback that will be called when a user enters the forum.
     // static:app.load
-    init: function(params, callback) {
-        var router = params.router;
-        router.get('/api/admin/plugins/gb-custom', controllers.renderAdminPage);
+    init: ({ router }, callback) => {
+	    routeHelpers.setupAdminPageRoute(router, '/admin/plugins/gb-custom', [], controllers.renderAdminPage);
         // Load the settings from the database.
         plugin.reloadSettings(callback);
 
@@ -93,7 +93,7 @@ var plugin = {
         async.parallel(query, function (err, done) {
  			if (err) {
  				 winston.error("[gb-custom] Error while updating user info from OSM");
- 			}	
+ 			}
  		});
     },
 
@@ -105,7 +105,7 @@ var plugin = {
             }
 
             winston.info('[gb-custom] Settings OK');
-            
+
             plugin.settings = _.defaults(_.pick(settings, Boolean), plugin.settings);
             plugin.ready = true;
 
