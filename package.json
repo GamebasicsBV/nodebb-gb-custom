@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/GamebasicsBV/nodebb-gb-custom/issues"
   },
-  "homepage": "https://github.com/GamebasicsBV/nodebb-gb-custom#readme"
+  "homepage": "https://github.com/GamebasicsBV/nodebb-gb-custom#readme",
+	"nbbpm": {
+        "compatibility": "^2.0.0"
+    }
 }

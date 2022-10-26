@@ -1,7 +1,7 @@
 'use strict';
 /* globals $, app, socket */
 
-define('admin/plugins/gb-custom', ['settings'], function(Settings) {
+define('admin/plugins/gb-custom', ['settings', 'alerts'], function(Settings, alerts) {
 
 	var ACP = {};
 
@@ -9,7 +9,7 @@ define('admin/plugins/gb-custom', ['settings'], function(Settings) {
 		Settings.load('gb-custom', $('.gb-custom-settings'));
 		$('#save').on('click', function() {
 			Settings.save('gb-custom', $('.gb-custom-settings'), function() {
-				app.alert({
+				alerts.alert({
 					type: 'success',
 					alert_id: 'gb-custom-saved',
 					title: 'Settings Saved',
