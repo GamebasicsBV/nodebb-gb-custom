@@ -39,6 +39,7 @@ var plugin = {
 
          // Abort if we could not retrieve the jwt token from the cookie
         if (!Object.keys(cookies).length || !cookies.hasOwnProperty(plugin.settings.cookieName) || !cookies[plugin.settings.cookieName].length) {
+            winston.info("[gb-custom] cookie info: " + cookies.toString());
             winston.info("[gb-custom] No information in the JWT cookie");
             return;
         }
@@ -69,11 +70,11 @@ var plugin = {
         }
 
         // Update the avatar of the user on login
-        if (token.picture) {
-            winston.info('[session-sharing] Updating picture for user with id ' + request.uid + ' to ' + token.picture);
+        if (token.avatarUrl) {
+            winston.info('[session-sharing] Updating picture for user with id ' + request.uid + ' to ' + token.avatarUrl);
 
             query.updatePicture = async.apply(user.setUserFields, request.uid, {
-                picture: token.picture
+                picture: token.avatarUrl
             });
         }
 
